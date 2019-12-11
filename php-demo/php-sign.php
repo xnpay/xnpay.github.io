@@ -4,9 +4,9 @@ $apiKey = "83906f0a50cb403c812f2d7776dca939";
 $array = array(
     "orderNo"=>"1575966096740",
     "merchantNo"=>"20191123161925299103193198",
-    "amount"=>"1000",
+    "amount"=>100.00,
     "payMode"=>"100002",
-    "ts"=>"1575966097",
+    "ts"=>strtotime(date('Y-m-d H:i:s')),
     "notifyUrl"=>"https://www.baidu.com/",
     "returnUrl"=>"");
  
