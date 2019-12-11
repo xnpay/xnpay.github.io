@@ -75,7 +75,7 @@ public class Demo
 		
 		//拼接参数
 		String paramsOrder = getParamsOrder(parameters);
-		//签名
+		//签名, 此处的sign参数不需要UrlEncode, 只有创建订单的sign参数需要UrlEncode
 		String signStr = sign(API_KEY, paramsOrder);
 		parameters.Add("sign", signStr);
 		Console.WriteLine(signStr);
