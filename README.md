@@ -29,6 +29,23 @@ BCrypt(Base64(SHA-256(apiKey+originalStr+apiKey)))
 ### 异步回调
 
 当创建订单时传入异步回调地址时，订单结束后（用户取消订单(-30)、用户支付超时（-40）、订单失败（-50）、订单已完成（50））进行通知，总共通知3次，每次间隔10 分钟，超时时间为10s，处理成功后返回 *success*，返回其他字符表示处理失败，会继续进行后续通知。通知内容参考统一返回参数
+示例：
+```
+curl -X POST "回调地址"
+  -H 'content-type: application/json' 
+  -d '{
+    "amount":100,
+    "payMode":"100001",
+    "ts":1575948756,
+    "orderStatus":50,
+    "payNo":"20191209194326631108714792",
+    "payStatus":30,
+    "payTime":1575948756,
+    "merchantNo":"20191204192421307122140114",
+    "orderNo":"201912081855183951ab02e",
+    "sign":"$2a$10$JwOX9nmVHrE6o8vcoSmyd.T69Yl7n322tVLmz.pVkRUz/.tRCjELS"
+}'
+```
 
 ### 接口内容
 1. 创建订单接口
