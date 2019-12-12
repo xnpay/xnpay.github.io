@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "app",
+      "type": "com.rongpay.javademo.commom.AppProperties",
+      "sourceType": "com.rongpay.javademo.commom.AppProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "app.api-key",
+      "type": "java.lang.String",
+      "sourceType": "com.rongpay.javademo.commom.AppProperties"
+    },
+    {
+      "name": "app.api-url",
+      "type": "java.lang.String",
+      "sourceType": "com.rongpay.javademo.commom.AppProperties"
+    },
+    {
+      "name": "app.merchant-no",
+      "type": "java.lang.String",
+      "sourceType": "com.rongpay.javademo.commom.AppProperties"
+    }
+  ],
+  "hints": []
+}
