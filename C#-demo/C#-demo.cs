@@ -176,8 +176,7 @@ public class Demo
    		 //sha256 &&  base64
 		String base64Str = Sha256AndBase64(signStr);
 		//BCrypt
-		String bcrypt = BCrypt.Net.BCrypt.HashPassword(base64Str);
-		return bcrypt;
+		return BCrypt.Net.BCrypt.HashPassword(base64Str);
 	}
 
 	/*
