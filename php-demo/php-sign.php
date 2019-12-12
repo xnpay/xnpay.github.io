@@ -29,7 +29,7 @@ ksort($array);
 //拼接 
 $original_str = '';
 foreach ($array as $key=>$value) {
-    if(!empty($value) && "sign"!=$key){
+    if(!empty($value) && 'sign'!=$key){
         $original_str.=$key.'='.urlencode($value).'&';
     }
 }
