@@ -60,7 +60,11 @@ class JavaDemoApplicationTests {
      * 测试查询订单
      */
     @Test
-    Map<String, String> testQueryOrder() {
+    void testQueryOrder() {
+       queryOrder();
+    }
+
+    Map<String, String> queryOrder() {
         Map<String, String> param = new HashMap<>();
         param.put("merchantNo", appProperties.getMerchantNo());
         param.put("orderNo", "1576061857");
@@ -76,7 +80,7 @@ class JavaDemoApplicationTests {
      */
     @Test
     void testReturnCallback() throws Exception {
-        Map<String, String> queryOrder = testQueryOrder();
+        Map<String, String> queryOrder = queryOrder();
         MultiValueMap<String, String> multiValueMap=new LinkedMultiValueMap<>();
         queryOrder.forEach(multiValueMap::add);
         mockMvc.perform(get("/callback/return-callback")
@@ -91,7 +95,7 @@ class JavaDemoApplicationTests {
      */
     @Test
     void testNotifyCallback() throws Exception {
-        Map<String, String> queryOrder = testQueryOrder();
+        Map<String, String> queryOrder = queryOrder();
         mockMvc.perform(post("/callback/notify-callback")
                 .contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(queryOrder)))
                 .andExpect(status().isOk())
