@@ -35,7 +35,7 @@ BCrypt(Base64(SHA-256(apiKey+originalStr+apiKey)))
 3. [c# demo](https://github.com/rongpay/rongpay.github.io/tree/master/C%23-demo)
 
 ### 同步通知 （returnUrl）
-当创建订单时传入返回地址，订单结束后，用户点击“返回商户”，会在返回链接带上参数（returnUrl?urlparams）。参数内容参考统一返回参数，可通过签名算法计算签名的正确性。例：
+当创建订单时传入返回地址，订单结束后，用户点击“返回商户”，会在返回链接带上参数（returnUrl?urlparams）。参数内容[参考统一返回参数](https://rongpay.github.io/#%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0)，可通过签名算法计算签名的正确性。例：
 ```
 returnUrl?
     amount=100&
@@ -53,7 +53,7 @@ returnUrl?
     
 ### 异步回调 （notifyUrl）
 
-当创建订单时传入异步回调地址时，订单结束后（用户取消订单(-30)、用户支付超时（-40）、订单失败（-50）、订单已完成（50））进行通知，总共通知3次，每次间隔10 分钟，超时时间为10s，处理成功后返回 *success*，返回其他字符表示处理失败，会继续进行后续通知。通知内容参考统一返回参数，可通过签名算法计算签名的正确性
+当创建订单时传入异步回调地址时，订单结束后（用户取消订单(-30)、用户支付超时（-40）、订单失败（-50）、订单已完成（50））进行通知，总共通知3次，每次间隔10 分钟，超时时间为10s，处理成功后返回 *success*，返回其他字符表示处理失败，会继续进行后续通知。通知内容[参考统一返回参数](https://rongpay.github.io/#%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0)，可通过签名算法计算签名的正确性
 示例：
 ```
 curl -X POST "回调地址"
@@ -108,7 +108,7 @@ curl -X POST "回调地址"
         |ts|是|整数|1575948756| 商户订单时间戳（秒级）|
         |sign|是|字符串|$2a$10$JwOX9nmVHrE6o8vcoSmyd.T6...| 参数签名，请按照签名算法生成|
     
-    6. 响应（参考统一返回参数）
+    6. 响应（[参考统一返回参数](https://rongpay.github.io/#%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0)）
     5. 示例
     ```
     请求： curl -X POST "网关地址+/any-pay/open/order/query"  -H  "accept:*/*"  -H  "Content-Type:application/json" -d "{\"merchantNo\":\"20191204192421307122140114\",\"orderNo\":\"201912081855183951ab02e\",\"sign\":\"$2a$10$JwOX9nmVHrE6o8vcoSmyd.T69Yl7n322tVLmz.pVkRUz/.tRCjELS\",\"ts\":1575948756}"
