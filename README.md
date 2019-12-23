@@ -1,7 +1,7 @@
 # 融付接口文档(v.191220)
     文档内容最后更新于：2019-12-20 
     
-<span style="color:red;">
+<span style="color:red !important;">
     
 ## 特别注意：
 1. **时间戳为秒级，非毫秒级，毫秒级请/1000**
