@@ -187,7 +187,7 @@ curl -X POST "回调地址"
         |ts|是|整数|1575948756| 商户订单时间戳（秒级）|
         |sign|是|字符串|$2a$10$JwOX9nmVHrE6o8vcoSmyd.T6...| 参数签名，请按照签名算法生成|
     
-    6. 响应:参考响应内容
+    6. 响应:参考[响应内容](https://rongpay.github.io/#%E5%93%8D%E5%BA%94%E5%86%85%E5%AE%B9)
     5. 示例
     ```
     请求： curl -X POST "网关+/any-pay/open/merchant/withdraw-apply" -H "X-REQUEST-TOKEN:111111we2324" 
@@ -215,8 +215,9 @@ curl -X POST "回调地址"
     -H "X-REQUEST-TOKEN:111111we2324" 
     -H "Content-Type:application/json" 
     -d "{\"merchantNo\":\"20191204192421307122140114\",\"applyNo\":\"201912041924213071221490224\",\"sign\":\"$2a$10$JwOX9nmVHrE6o8vcoSmyd.T6\",\"ts\":1575948756}"
-    响应：参考响应内容
+    响应：参考[响应内容](https://rongpay.github.io/#%E5%93%8D%E5%BA%94%E5%86%85%E5%AE%B9)
     ```
+
 ### 响应内容
 1. 响应参数
 
@@ -227,7 +228,7 @@ curl -X POST "回调地址"
     |amt|是|整数|500000| 金额（分）|
     |serviceCharge|是|整数|300| 服务费金额（分）|
     |applyStatus|是|整数|10| 申请状态|
-    
+
 1. 枚举值
     1. 申请状态（applyStatus）枚举 
 
@@ -238,7 +239,7 @@ curl -X POST "回调地址"
     | 16 | 待确认 |
     | 20 | 成功 |
     | -20 | 失败 |
-    
+
 1. 示例
     ```
     {"applyNo":"20200323111021811157255464","type":"WITHDRAW","amt":500000,"serviceCharge":300,"applyStatus":20}
