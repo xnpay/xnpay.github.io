@@ -208,14 +208,13 @@ curl -X POST "回调地址"
         |ts|是|整数|1575948756| 商户订单时间戳（秒级）|
         |sign|是|字符串|$2a$10$JwOX9nmVHrE6o8vcoSmyd.T6...| 参数签名，请按照签名算法生成|
     
-    6. 响应: 参考响应内容
+    6. 响应: 参考[响应内容](https://rongpay.github.io/#%E5%93%8D%E5%BA%94%E5%86%85%E5%AE%B9)
     5. 示例
     ```
     请求： curl -X POST "网关+/any-pay/open/merchant/withdraw-apply/query" 
     -H "X-REQUEST-TOKEN:111111we2324" 
     -H "Content-Type:application/json" 
     -d "{\"merchantNo\":\"20191204192421307122140114\",\"applyNo\":\"201912041924213071221490224\",\"sign\":\"$2a$10$JwOX9nmVHrE6o8vcoSmyd.T6\",\"ts\":1575948756}"
-    响应：参考[响应内容](https://rongpay.github.io/#%E5%93%8D%E5%BA%94%E5%86%85%E5%AE%B9)
     ```
 
 ### 响应内容
