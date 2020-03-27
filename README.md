@@ -1,4 +1,4 @@
-# 融付接口文档(v.200320)
+# XNpay接口文档(v.200320)
     文档内容最后更新于：2020-03-23
     
 
@@ -43,12 +43,12 @@ BCrypt(Base64(SHA-256(apiKey+originalStr+apiKey)))
     1. 用SHA-256算法将“apiKey+originalStr+apiKey”进行签名得到签名信息（二进制,有些工具会生成16进制）
     1. 使用Base64编码对SHA-256二进制签名信息进行编码
     1. 使用BCrypt对编码字符串进行签名得到最终签名字符串
-1. [php demo](https://github.com/rongpay/rongpay.github.io/tree/master/php-demo)
-2. [java demo](https://github.com/rongpay/rongpay.github.io/tree/master/java-demo)
-3. [c# demo](https://github.com/rongpay/rongpay.github.io/tree/master/C%23-demo)
+1. [php demo](https://github.com/rongpay/xnpay.github.io/tree/master/php-demo)
+2. [java demo](https://github.com/rongpay/xnpay.github.io/tree/master/java-demo)
+3. [c# demo](https://github.com/rongpay/xnpay.github.io/tree/master/C%23-demo)
 
 ### 同步通知 （returnUrl）
-当创建订单时传入返回地址，订单结束后，用户点击“返回商户”，会在返回链接带上参数（returnUrl?urlparams）。参数内容[参考统一返回参数](https://rongpay.github.io/#%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0)，可通过签名算法计算签名的正确性。例：
+当创建订单时传入返回地址，订单结束后，用户点击“返回商户”，会在返回链接带上参数（returnUrl?urlparams）。参数内容[参考统一返回参数](https://xnpay.github.io/#%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0)，可通过签名算法计算签名的正确性。例：
 ```
 returnUrl?
     amount=100&
@@ -66,7 +66,7 @@ returnUrl?
     
 ### 异步回调 （notifyUrl）
 
-当创建订单时传入异步回调地址时，订单结束后（用户取消订单(-30)、用户支付超时（-40）、订单失败（-50）、订单已完成（50））进行通知，总共通知3次，间格时间分别为0s,15,60s，超时时间为10s，处理成功后返回 *success*，返回其他字符表示处理失败，会继续进行后续通知。通知内容[参考统一返回参数](https://rongpay.github.io/#%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0)，可通过签名算法计算签名的正确性
+当创建订单时传入异步回调地址时，订单结束后（用户取消订单(-30)、用户支付超时（-40）、订单失败（-50）、订单已完成（50））进行通知，总共通知3次，间格时间分别为0s,15,60s，超时时间为10s，处理成功后返回 *success*，返回其他字符表示处理失败，会继续进行后续通知。通知内容[参考统一返回参数](https://xnpay.github.io/#%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0)，可通过签名算法计算签名的正确性
 示例：
 ```
 curl -X POST "回调地址"
@@ -121,7 +121,7 @@ curl -X POST "回调地址"
         |ts|是|整数|1575948756| 商户订单时间戳（秒级）|
         |sign|是|字符串|$2a$10$JwOX9nmVHrE6o8vcoSmyd.T6...| 参数签名，请按照签名算法生成|
     
-    6. 响应（[参考统一返回参数](https://rongpay.github.io/#%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0)）
+    6. 响应（[参考统一返回参数](https://xnpay.github.io/#%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0)）
     5. 示例
     ```
     请求： curl -X POST "网关地址+/any-pay/open/order/query"  -H  "accept:*/*"  -H  "Content-Type:application/json" -d "{\"merchantNo\":\"20191204192421307122140114\",\"orderNo\":\"201912081855183951ab02e\",\"sign\":\"$2a$10$JwOX9nmVHrE6o8vcoSmyd.T69Yl7n322tVLmz.pVkRUz/.tRCjELS\",\"ts\":1575948756}"
@@ -187,7 +187,7 @@ curl -X POST "回调地址"
         |ts|是|整数|1575948756| 商户订单时间戳（秒级）|
         |sign|是|字符串|$2a$10$JwOX9nmVHrE6o8vcoSmyd.T6...| 参数签名，请按照签名算法生成|
     
-    6. 响应:参考[响应内容](https://rongpay.github.io/#%E5%93%8D%E5%BA%94%E5%86%85%E5%AE%B9)
+    6. 响应:参考[响应内容](https://xnpay.github.io/#%E5%93%8D%E5%BA%94%E5%86%85%E5%AE%B9)
     5. 示例
     ```
     请求： curl -X POST "网关+/any-pay/open/merchant/withdraw-apply" -H "X-REQUEST-TOKEN:111111we2324" 
@@ -208,7 +208,7 @@ curl -X POST "回调地址"
         |ts|是|整数|1575948756| 商户订单时间戳（秒级）|
         |sign|是|字符串|$2a$10$JwOX9nmVHrE6o8vcoSmyd.T6...| 参数签名，请按照签名算法生成|
     
-    6. 响应: 参考[响应内容](https://rongpay.github.io/#%E5%93%8D%E5%BA%94%E5%86%85%E5%AE%B9)
+    6. 响应: 参考[响应内容](https://xnpay.github.io/#%E5%93%8D%E5%BA%94%E5%86%85%E5%AE%B9)
     5. 示例
     ```
     请求： curl -X POST "网关+/any-pay/open/merchant/withdraw-apply/query" 
