@@ -43,9 +43,9 @@ BCrypt(Base64(SHA-256(apiKey+originalStr+apiKey)))
     1. 用SHA-256算法将“apiKey+originalStr+apiKey”进行签名得到签名信息（二进制,有些工具会生成16进制）
     1. 使用Base64编码对SHA-256二进制签名信息进行编码
     1. 使用BCrypt对编码字符串进行签名得到最终签名字符串
-1. [php demo](https://github.com/rongpay/xnpay.github.io/tree/master/php-demo)
-2. [java demo](https://github.com/rongpay/xnpay.github.io/tree/master/java-demo)
-3. [c# demo](https://github.com/rongpay/xnpay.github.io/tree/master/C%23-demo)
+1. [php demo](https://github.com/xnpay/xnpay.github.io/tree/master/php-demo)
+2. [java demo](https://github.com/xnpay/xnpay.github.io/tree/master/java-demo)
+3. [c# demo](https://github.com/xnpay/xnpay.github.io/tree/master/C%23-demo)
 
 ### 同步通知 （returnUrl）
 当创建订单时传入返回地址，订单结束后，用户点击“返回商户”，会在返回链接带上参数（returnUrl?urlparams）。参数内容[参考统一返回参数](https://xnpay.github.io/#%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0)，可通过签名算法计算签名的正确性。例：
